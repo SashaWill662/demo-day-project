@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perfume Palace</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<div style="display:flex; justify-content:space-between; align-items:center; padding:20px;">
+
+    <a href="/">
+        <button>🏠 Home</button>
+    </a>
+
+    <a href="/cart">
+        <button>
+            🛒 Cart (<span id="cartCount">0</span>)
+        </button>
+    </a>
+
+</div>
+
+<h1>Perfume Palace</h1>
+
+<p>Endless Elegance</p>
+
+<div class="dropdown">
+    <button class="dropbtn">Browse Fragrances ▼</button>
+
+    <div class="dropdown-content">
+        <a href="/mens">Men's Fragrances</a>
+        <a href="/womens">Women's Fragrances</a>
+        <a href="/unisex">Unisex Fragrances</a>
+        <a href="/bestsellers">Best Sellers</a>
+    </div>
+</div>
+
+<script>
+
+    function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        document.getElementById("cartCount").innerText = cart.length;
+    }
+
+    updateCartCount();
+
+</script>
+
+</body>
+</html>

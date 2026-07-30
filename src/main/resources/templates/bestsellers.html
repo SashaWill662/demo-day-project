@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Best Sellers</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<div style="display:flex; justify-content:space-between; align-items:center; padding:20px;">
+
+  <a href="/">
+    <button>🏠 Home</button>
+  </a>
+
+  <a href="/cart">
+    <button>
+      🛒 Cart (<span id="cartCount">0</span>)
+    </button>
+  </a>
+
+</div>
+
+<h1>🏆 Best Sellers</h1>
+<p>Our customers can't get enough of these fragrances.</p>
+
+<ol style="display:inline-block; text-align:left; font-size:22px;">
+
+  <li>💰 Money Mint</li>
+  <li>🍊 Savage Citrus</li>
+  <li>🍋 Candied Lemon</li>
+  <li>🌸 Orange Blossom</li>
+
+</ol>
+
+<br><br>
+
+<script>
+
+  function updateCartCount() {
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      document.getElementById("cartCount").innerText = cart.length;
+
+  }
+
+  updateCartCount();
+
+</script>
+
+</body>
+</html>

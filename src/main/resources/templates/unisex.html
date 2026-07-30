@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unisex Fragrances</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<div style="display:flex; justify-content:space-between; align-items:center; padding:20px;">
+
+  <a href="/">
+    <button>🏠 Home</button>
+  </a>
+
+  <a href="/cart">
+    <button>
+      🛒 Cart (<span id="cartCount">0</span>)
+    </button>
+  </a>
+
+</div>
+
+<h1> Unisex Fragrances</h1>
+
+<p>Fragrances designed for everyone.</p>
+
+<div style="text-align:center; margin-top:40px;">
+
+  <h2>🚧 Coming Soon!</h2>
+
+  <p>
+    We're currently creating our exclusive unisex collection.
+  </p>
+
+  <p>
+    Check back soon for exciting new fragrances.
+  </p>
+
+</div>
+
+<script>
+
+  function updateCartCount() {
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      document.getElementById("cartCount").innerText = cart.length;
+
+  }
+
+  updateCartCount();
+
+</script>
+
+</body>
+</html>

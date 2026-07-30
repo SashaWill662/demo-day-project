@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Men's Fragrances</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<div style="display:flex; justify-content:space-between; align-items:center; padding:20px;">
+
+    <a href="/">
+    <button>🏠 Home</button>
+    </a>
+
+    <a href="/cart">
+    <button>
+    🛒 Cart (<span id="cartCount">0</span>)
+    </button>
+    </a>
+
+</div>
+
+<h1>Men's Fragrances</h1>
+<p>Explore our exclusive men's collection.</p>
+
+<div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap;">
+
+    <div style="text-align:center;">
+    <h3>🏝️ Pure Paradise</h3>
+    <img src="/images/PureParadise.JPG" width="140">
+    <p><strong>$49.99</strong></p>
+    <button onclick="addToCart('Pure Paradise', 49.99)">
+    Add to Cart
+    </button>
+    </div>
+
+    <div style="text-align:center;">
+    <h3>💰 MoneyMint</h3>
+    <img src="/images/MoneyMint.JPG" width="140">
+    <p><strong>$54.99</strong></p>
+    <button onclick="addToCart('MoneyMint', 54.99)">
+    Add to Cart
+    </button>
+    </div>
+
+    <div style="text-align:center;">
+    <h3>🍊 Savage Citrus</h3>
+    <img src="/images/SavageCitrus.JPG" width="140">
+    <p><strong>$46.99</strong></p>
+    <button onclick="addToCart('Savage Citrus', 46.99)">
+    Add to Cart
+    </button>
+    </div>
+
+    <div style="text-align:center;">
+    <h3>🔥 Fame Flavor</h3>
+    <img src="/images/FameFlavor.JPG" width="140">
+    <p><strong>$44.99</strong></p>
+    <button onclick="addToCart('Fame Flavor', 44.99)">
+    Add to Cart
+    </button>
+    </div>
+
+</div>
+
+<br><br>
+
+<script>
+
+    function addToCart(name, price) {
+    
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+    cart.push({
+    name: name,
+    price: price
+    });
+    
+    localStorage.setItem("cart", JSON.stringify(cart));
+    
+    alert(name + " added to cart!");
+    
+    window.location.href = "/cart";
+    }
+    
+    function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    document.getElementById("cartCount").innerText = cart.length;
+    }
+    
+    updateCartCount();
+
+</script>
+
+</body>
+</html>

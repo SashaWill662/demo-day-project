@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Women's Fragrances</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<div style="display:flex; justify-content:space-between; align-items:center; padding:20px;">
+
+  <a href="/">
+  <button>🏠 Home</button>
+  </a>
+
+  <a href="/cart">
+  <button>
+  🛒 Cart (<span id="cartCount">0</span>)
+  </button>
+  </a>
+
+</div>
+
+<h1>Women's Fragrances</h1>
+<p>Explore our elegant women's collection.</p>
+
+<div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap;">
+
+  <div style="text-align:center;">
+  <h3>🍋 Candied Lemon</h3>
+  <img src="/images/CandiedLemon.JPG" width="140">
+  <p><strong>$44.99</strong></p>
+  <button onclick="addToCart('Candied Lemon', 44.99)">
+  Add to Cart
+  </button>
+  </div>
+
+  <div style="text-align:center;">
+  <h3>🌸 Orange Blossom</h3>
+  <img src="/images/OrangeBlossom.JPG" width="140">
+  <p><strong>$49.99</strong></p>
+  <button disabled style="background:#888;color:white;">
+  Sold Out
+  </button>
+  </div>
+
+  <div style="text-align:center;">
+  <h3>🌼 Lilly of the Valley</h3>
+  <img src="/images/LilyOfTheValley.JPG" width="140">
+  <p><strong>$54.99</strong></p>
+  <button onclick="addToCart('Lilly of the Valley', 54.99)">
+  Add to Cart
+  </button>
+  </div>
+
+  <div style="text-align:center;">
+  <h3>🍉 LavaMelon</h3>
+  <img src="/images/LavaMelon.JPG" width="140">
+  <p><strong>$46.99</strong></p>
+  <button onclick="addToCart('LavaMelon', 46.99)">
+  Add to Cart
+  </button>
+  </div>
+
+</div>
+
+<br><br>
+
+<script>
+
+  function addToCart(name, price) {
+  
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  
+  cart.push({
+  name: name,
+  price: price
+  });
+  
+  localStorage.setItem("cart", JSON.stringify(cart));
+  
+  alert(name + " added to cart!");
+  
+  window.location.href = "/cart";
+  }
+  
+  function updateCartCount() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  document.getElementById("cartCount").innerText = cart.length;
+  }
+  
+  updateCartCount();
+
+</script>
+
+</body>
+</html>

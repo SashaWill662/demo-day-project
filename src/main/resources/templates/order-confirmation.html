@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Order Confirmed</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<div style="display:flex; justify-content:space-between; align-items:center; padding:20px;">
+
+    <a href="/">
+    <button>🏠 Home</button>
+    </a>
+
+    <a href="/cart">
+    <button>
+    🛒 Cart (<span id="cartCount">0</span>)
+    </button>
+    </a>
+
+</div>
+
+<div style="text-align:center; margin-top:40px;">
+
+    <h1 style="color:green;">
+    Order Confirmed!
+    </h1>
+
+    <h2>
+    Thank you for shopping at <br>
+    <strong>Perfume Palace</strong>!
+    </h2>
+
+    <p>
+    Your order has been placed successfully.
+    </p>
+
+    <br>
+
+    <h3 id="orderNumber"></h3>
+
+    <h3 id="deliveryDate"></h3>
+
+    <br>
+
+    <p>
+    A confirmation email has been sent to your email address.
+    </p>
+
+    <br>
+
+    <button onclick="continueShopping()">
+    🛍️ Continue Shopping
+    </button>
+
+</div>
+
+<script>
+
+    function updateCartCount(){
+    
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+    document.getElementById("cartCount").innerText = cart.length;
+    
+    }
+    
+    function generateOrder(){
+    
+    let order = "PP-" + Math.floor(Math.random()*900000 + 100000);
+    
+    document.getElementById("orderNumber").innerHTML =
+    "Order Number: <b>" + order + "</b>";
+    
+    let delivery = new Date();
+    
+    delivery.setDate(delivery.getDate() + 5);
+    
+    document.getElementById("deliveryDate").innerHTML =
+    "Estimated Delivery: <b>" + delivery.toDateString() + "</b>";
+    
+    }
+    
+    function continueShopping(){
+    
+    window.location.href="/";
+    
+    }
+    
+    updateCartCount();
+    
+    generateOrder();
+
+</script>
+
+</body>
+</html>
